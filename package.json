@@ -1,0 +1,24 @@
+{
+  "name": "simple-nodejs-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauricioLimaJR/simple-nodejs-api.git"
+  },
+  "author": "Mauricio Junior <jmauriciolm38@gmail.com> (github.com/MauricioLimaJR)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MauricioLimaJR/simple-nodejs-api/issues"
+  },
+  "homepage": "https://github.com/MauricioLimaJR/simple-nodejs-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.3"
+  }
+}
