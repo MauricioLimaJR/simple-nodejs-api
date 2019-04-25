@@ -6,9 +6,10 @@ const bodyParser = require('body-parser');
 const frotaRotas = require('./routes/routes'); 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 // Set up mongoose connection
 const mongoose = require('mongoose');
-//let dev_db_url = 'mongodb:admin:admin@cluster0-fg4km.mongodb.net/test?retryWrites=true';
 let dev_db_url = "mongodb+srv://admin:admin@cluster0-fg4km.mongodb.net/frota?retryWrites=true";
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);

@@ -1,5 +1,13 @@
 const Carro = require('../models/model');
 
+exports.index = function (req, res, next) {
+	Carro.find({}, function (err, carros) {
+		if (err) return next(err);
+
+		res.render('index.ejs', {title: 'Frota ZeroPay', carros: carros});
+	})
+};
+
 exports.adicionar_carro = function (req, res, next) {
 
     let carro = new Carro({
@@ -14,30 +22,43 @@ exports.adicionar_carro = function (req, res, next) {
         if (err) {
             return next(err);
         }
-        res.send('Carro adicionado na frota com sucesso!')
+        res.redirect('/frota/')
     })
 };
 
 exports.visualizar_carro = function (req, res, next) {
-	/*findById(id, projection, options, callback) {
-	.findOne({_id: id}, projection, options, callback);*/
     Carro.findOne({placa: req.params.placa}, function (err, carro) {
-    // Carro.findById(req.params.placa, function (err, carro) {
         if (err) return next(err);
         res.send(carro);
     })
 };
 
 exports.editar_carro = function (req, res, next) {
-    Carro.findByIdAndUpdate(req.params.placa, {$set: req.body}, function (err, carro) {
+	Carro.findOne({placa: req.params.placa}, function (err, carro) {
         if (err) return next(err);
-        res.send('Os dados do carro foram atualizados com sucesso!');
-    });
+       	
+       	if(carro._id) {
+			Carro.findByIdAndUpdate(carro._id, {$set: req.body}, function (err, carro) {
+		        if (err) return next(err);
+		        res.send('Os dados do carro foram atualizados com sucesso!');
+		    });	
+		} else {
+			res.send('Os não foram alterados devido algum erro.');
+		}
+    })    
 };
 
 exports.excluir_carro = function (req, res, next) {
-    Carro.findByIdAndRemove(req.params.placa, function (err) {
+    Carro.findOne({placa: req.params.placa}, function (err, carro) {
         if (err) return next(err);
-        res.send('O carro foi excluído com sucesso!');
+       	
+       	if(carro._id) {
+			Carro.findByIdAndRemove(carro._id, function (err) {
+		        if (err) return next(err);
+		        res.send('O carro foi excluído com sucesso!');
+		    })
+		} else {
+			res.send('Os não foram alterados devido algum erro.');
+		}
     })
 };

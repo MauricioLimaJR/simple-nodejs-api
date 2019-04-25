@@ -1,0 +1,31 @@
+{
+	"modelo": "cruze hatch",
+	"anoFabricacao": 2018,
+	"marca": "chevrolet ",
+	"placa": "AAA111",
+	"kilometragem": 0
+}
+
+{
+	"modelo": "ranger 3.2",
+	"anoFabricacao": 2019,
+	"marca": "Ford",
+	"placa": "BBB222",
+	"kilometragem": 0
+}
+
+{
+	"modelo": "jetta",
+	"anoFabricacao": 2017,
+	"marca": "volkswagen",
+	"placa": "CCC333",
+	"kilometragem": 7000
+}
+
+{
+	"modelo": "Gol G5",
+	"anoFabricacao": 2016,
+	"marca": "volkswagen",
+	"placa": "DDD444",
+	"kilometragem": 35000
+}
